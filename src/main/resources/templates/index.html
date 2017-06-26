@@ -1,36 +1,101 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
-    <head>
-        <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title sec:authentication="name"></title>
-        <link rel="stylesheet" th:href="@{bootstrap/css/bootstrap.min.css}"/>
-        <style type="text/css">
-            body {
-                padding-top: 50px;
-            }
-
-            .starter-template {
-                padding: 40px 15px;
-                text-align: center;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="starter-template">
-                <!--<h1 th:text="${msg.title}"></h1>-->
-                <!--<p class="bg-primary" th:text="${msg.content}"></p>-->
-                <!--<div sec:authorize="hasRole('ROLE_ADMIN')">-->
-                    <!--<p class="bg-info" th:text="${msg.extraInfo}"></p>-->
-                <!--</div>-->
-                <div sec:authorize="hasRole('ROLE_USER')">
-                    <p class="bg-info">无更多显示信息</p>
-                </div>
-                <form th:action="@{/logout}" method="post">
-                    <input type="submit" class="btn btn-primary" value="注销"/>
-                </form>
-            </div>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>layout 后台大框架布局 - Layui</title>
+    <link rel="stylesheet" href="layui/css/layui.css">
+</head>
+<body>
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <div class="layui-main">
+            <ul class="layui-nav">
+                <li class="layui-nav-item ">
+                    <a href="/doc/">文档</a>
+                </li>
+                <li class="layui-nav-item layui-this">
+                    <a href="/demo/">示例</a>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="http://fly.layui.com/" target="_blank">社区</a>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">周边</a>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">更多</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="http://fly.layui.com/" target="_blank">社区</a></dd>
+                    </dl>
+                </li>
+            </ul>
         </div>
-    </body>
+    </div>
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree site-demo-nav">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="javascript:;" href="javascript:;">基本元素</a>
+                    <dl class="layui-nav-child">
+                        <dd class="">
+                            <a href="/demo/button.html">按钮组</a>
+                        </dd>
+                        <dd class="">
+                            <a href="/demo/form.html">表单集合</a>
+                        </dd>
+                        <dd class="">
+                            <a href="/demo/nav.html">导航与面包屑</a>
+                        </dd>
+                        <dd class="">
+                            <a href="/demo/tab.html">选项卡</a>
+                        </dd>
+                        <dd class="">
+                            <a href="/demo/progress.html">进度条</a>
+                        </dd>
+                        <dd class="">
+                            <a href="/demo/collapse.html">折叠面板</a>
+                        </dd>
+                        <dd class="">
+                            <a href="/demo/table.html">基本表格</a>
+                        </dd>
+                        <dd class="">
+                            <a href="/demo/auxiliar.html">简单辅助元素</a>
+                        </dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item" style="height: 30px; text-align: center"></li>
+            </ul>
+        </div>
+    </div>
+    <div class="layui-body">
+        <!-- 内容主体区域 -->
+    </div>
+    <div class="layui-footer footer footer-demo">
+        <!-- 底部固定区域 -->
+        <div class="layui-main" style="text-align: center">
+            <p>&copy; 2017 org.lr</p>
+            <p>联系方式：707098275@qq.com</p>
+        </div>
+    </div>
+</div>
+<script async src="layerui/adsbygoogle.js"></script>
+<div class="site-tree-mobile layui-hide">
+    <i class="layui-icon">&#xe602;</i>
+</div>
+<div class="site-mobile-shade"></div>
+<script src="layui/layui.js" charset="utf-8"></script>
+<script src="layui/lay/modules/index.js" charset="utf-8"></script>
+<script>
+    window.global = {
+        preview: function(){
+            var preview = document.getElementById('LAY_preview');
+            return preview ? preview.innerHTML : '';
+        }()
+    };
+</script>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_30088308'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/c.php%3Fid%3D30088308' type='text/javascript'%3E%3C/script%3E"));</script>
+</body>
 </html>

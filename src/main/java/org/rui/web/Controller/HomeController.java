@@ -18,4 +18,9 @@ public class HomeController {
     public String login(Model model) {
         return "login";
     }
+
+    @RequestMapping("/test")
+    public String test(Model model) {
+        return "test";
+    }
 }
