@@ -1,7 +1,7 @@
 # WebDemo
 SpringBoot WebDemo
 
-#技术栈
+# 技术栈
 Spring Boot
 Thymeleaf
 bootstrap
