@@ -23,4 +23,14 @@ public class HomeController {
     public String test(Model model) {
         return "test";
     }
+
+    @RequestMapping("/index")
+    public String index1(Model model) {
+        return "admin/index";
+    }
+
+    @RequestMapping("/admin/welcome")
+    public String welcome(Model model) {
+        return "admin/welcome";
+    }
 }
